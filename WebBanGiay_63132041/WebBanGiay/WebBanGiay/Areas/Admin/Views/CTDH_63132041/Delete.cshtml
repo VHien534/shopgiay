@@ -1,0 +1,47 @@
+﻿@model WebBanGiay.Models.ChiTietDonHang
+
+@{
+    ViewBag.Title = "Xóa chi tiết đơn hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="card mx-auto" style="max-width: 700px;">
+        <!-- Giới hạn chiều ngang -->
+        <div class="card-header bg-danger text-white">
+            <h3 class="text-center">Bạn có chắc chắn muốn xóa chi tiết đơn hàng này?</h3>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-5 font-weight-bold mb-2">Mã đơn hàng:</dt>
+                <dd class="col-sm-7 mb-2">@Html.DisplayFor(model => model.MaDH)</dd>
+                <hr class="w-100 my-1" />
+
+                <dt class="col-sm-5 font-weight-bold mb-2">Mã sản phẩm:</dt>
+                <dd class="col-sm-7 mb-2">@Html.DisplayFor(model => model.MaSP)</dd>
+                <hr class="w-100 my-1" />
+
+                <dt class="col-sm-5 font-weight-bold mb-2">Đơn giá:</dt>
+                <dd class="col-sm-7 mb-2">@string.Format("{0:#,##0}đ", Model.DonGia)</dd>
+                <hr class="w-100 my-1" />
+
+                <dt class="col-sm-5 font-weight-bold mb-2">Số lượng:</dt>
+                <dd class="col-sm-7 mb-2">@Html.DisplayFor(model => model.SoLuong)</dd>
+                <hr class="w-100 my-1" />
+
+                <dt class="col-sm-5 font-weight-bold mb-2">Thành tiền:</dt>
+                <dd class="col-sm-7 mb-2">@string.Format("{0:#,##0}đ", Model.ThanhTien)</dd>
+            </dl>
+        </div>
+
+        <!-- Nút điều hướng -->
+        <div class="card-footer text-center">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn btn-danger px-4">Xóa</button>
+                @Html.ActionLink("Quay lại", "Index", null, new { @class = "btn btn-warning px-4 ml-2" })
+            }
+        </div>
+    </div>
+</div>

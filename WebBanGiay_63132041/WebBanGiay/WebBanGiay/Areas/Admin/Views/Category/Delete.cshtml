@@ -1,0 +1,39 @@
+﻿@model WebBanGiay.Models.LoaiSanPham
+
+@{
+    ViewBag.Title = "Xóa loại sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="card mx-auto" style="max-width: 700px;">
+        <!-- Giới hạn chiều ngang -->
+        <div class="card-header bg-danger text-white">
+            <h3 class="text-center">Bạn có chắc chắn muốn xóa loại sản phẩm này?</h3>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-5 font-weight-bold mb-2">Mã loại sản phẩm:</dt>
+                <dd class="col-sm-7 mb-2">@Html.DisplayFor(model => model.MaLoaiSP)</dd>
+                <hr class="w-100 my-1" />
+
+                <dt class="col-sm-5 font-weight-bold mb-2">Tên loại:</dt>
+                <dd class="col-sm-7 mb-2">@Html.DisplayFor(model => model.TenLoai)</dd>
+                <hr class="w-100 my-1" />
+
+                <dt class="col-sm-5 font-weight-bold mb-2">Mô tả:</dt>
+                <dd class="col-sm-7 mb-2">@Html.DisplayFor(model => model.MoTa)</dd>
+            </dl>
+        </div>
+
+        <!-- Nút điều hướng -->
+        <div class="card-footer text-center">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn btn-danger px-4">Xóa</button>
+                @Html.ActionLink("Quay lại", "Index", null, new { @class = "btn btn-warning px-4 ml-2" })
+            }
+        </div>
+    </div>
+</div>

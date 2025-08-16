@@ -1,0 +1,47 @@
+﻿@model WebBanGiay.Models.NhaCungCap
+
+@{
+    ViewBag.Title = "Xóa nhà cung cấp";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container mt-5">
+    <div class="card mx-auto" style="max-width: 700px;">
+        <!-- Giới hạn chiều ngang -->
+        <div class="card-header bg-danger text-white">
+            <h3 class="text-center">Bạn có chắc chắn muốn xóa nhà cung cấp này?</h3>
+        </div>
+        <div class="card-body">
+            <dl class="row">
+                <dt class="col-sm-5 font-weight-bold mb-2">Mã nhà cung cấp:</dt>
+                <dd class="col-sm-7 mb-2">@Html.DisplayFor(model => model.MaNCC)</dd>
+                <hr class="w-100 my-1" />
+
+                <dt class="col-sm-5 font-weight-bold mb-2">Tên nhà cung cấp:</dt>
+                <dd class="col-sm-7 mb-2">@Html.DisplayFor(model => model.TenNCC)</dd>
+                <hr class="w-100 my-1" />
+
+                <dt class="col-sm-5 font-weight-bold mb-2">Email:</dt>
+                <dd class="col-sm-7 mb-2">@Html.DisplayFor(model => model.EmailNCC)</dd>
+                <hr class="w-100 my-1" />
+
+                <dt class="col-sm-5 font-weight-bold mb-2">Số điện thoại:</dt>
+                <dd class="col-sm-7 mb-2">@Html.DisplayFor(model => model.SDTNCC)</dd>
+                <hr class="w-100 my-1" />
+
+                <dt class="col-sm-5 font-weight-bold mb-2">Địa chỉ:</dt>
+                <dd class="col-sm-7 mb-2">@Html.DisplayFor(model => model.DiaChiNCC)</dd>
+            </dl>
+        </div>
+
+        <!-- Nút điều hướng -->
+        <div class="card-footer text-center">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <button type="submit" class="btn btn-danger px-4">Xóa</button>
+                @Html.ActionLink("Quay lại", "Index", null, new { @class = "btn btn-warning px-4 ml-2" })
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,254 @@
+﻿@model IEnumerable<WebBanGiay.Models.SanPham>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-HoR4GDO0Bxgr72fOD8O5RA3ZmfpEu27uXEr4SkSXmHgrfLFqHr6EZ2GoaBx6qSoBxrzXr5pvoGfEKbNDp+np7w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    .owl-carousel .owl-nav button.owl-prev, .owl-carousel .owl-nav button.owl-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .owl-carousel .owl-nav button.owl-prev:hover, .owl-carousel .owl-nav button.owl-next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+    .owl-carousel .owl-nav button.owl-prev {
+        left: -10px;
+    }
+
+    .owl-carousel .owl-nav button.owl-next {
+        right: -10px;
+    }
+
+    .owl-carousel .owl-dots .owl-dot {
+        width: 12px;
+        height: 12px;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 50%;
+        margin: 0 5px;
+        transition: background-color 0.3s;
+    }
+
+        .owl-carousel .owl-dots .owl-dot.active {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+    .menu {
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+        .menu:hover {
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+
+    .hero {
+        background: linear-gradient(to bottom, #3b82f6, #1d4ed8);
+    }
+
+    .hero-content {
+        color: white;
+    }
+</style>
+
+
+<div id="default-carousel" class="relative w-full" data-carousel="slide">
+    <!-- Carousel wrapper -->
+    <div class="h-56 relative overflow-hidden rounded-lg md:h-[500px]">
+        <!-- Item 1 -->
+        <a href="">
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="https://shopgiayreplica.com/wp-content/uploads/2024/10/Jordan-1-Low-OG-Medium-Olive-Best-Quality.jpg" class="-translate-x-1/2 -translate-y-1/2 absolute left-1/2 top-1/2 block w-full object-fill" alt="...">
+            </div>
+            <!-- Item 2 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="https://shopgiayreplica.com/wp-content/uploads/2024/11/Jordan4.jpg" class="-translate-x-1/2 -translate-y-1/2 absolute left-1/2 top-1/2 block w-full" alt="...">
+            </div>
+            <!-- Item 3 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="https://giaygiare.vn/upload/banner/giay-the-thao-alphabounce-beyond-2018-gia-tot-nhat-thi-truong.png" class="-translate-x-1/2 -translate-y-1/2 absolute left-1/2 top-1/2 block w-full" alt="...">
+            </div>
+            <!-- Item 4 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                <img src="https://giaygiare.vn/upload/banner/giay-nike-air-force-1.png" class="-translate-x-1/2 -translate-y-1/2 absolute left-1/2 top-1/2 block w-full" alt="...">
+            </div>
+        </a>
+
+    </div>
+    <!-- Slider indicators -->
+    <div class="-translate-x-1/2 bottom-5 space-x-3 absolute left-1/2 z-30 flex rtl:space-x-reverse">
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+        <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+    </div>
+    <!-- Slider controls -->
+    <button type="button" class="top-0 start-0 px-4 group absolute z-30 flex h-full cursor-pointer items-center justify-center focus:outline-none" data-carousel-prev>
+        <span class="w-10 h-10 bg-white/30 inline-flex items-center justify-center rounded-full dark:bg-gray-800/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70">
+            <svg class="w-4 h-4 text-white rtl:rotate-180 dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+            </svg>
+            <span class="sr-only">Previous</span>
+        </span>
+    </button>
+    <button type="button" class="top-0 end-0 px-4 group absolute z-30 flex h-full cursor-pointer items-center justify-center focus:outline-none" data-carousel-next>
+        <span class="w-10 h-10 bg-white/30 inline-flex items-center justify-center rounded-full dark:bg-gray-800/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none dark:group-hover:bg-gray-800/60 dark:group-focus:ring-gray-800/70">
+            <svg class="w-4 h-4 text-white rtl:rotate-180 dark:text-gray-800" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+            </svg>
+            <span class="sr-only">Next</span>
+        </span>
+    </button>
+</div>
+
+<div class="my-4 flex">
+    <div class="menu bg-white text-black w-full rounded-md md:w-1/3">
+        @Html.Action("DanhmucPHome", "Home")
+    </div>
+    <div class="flex w-full md:w-2/3">
+        <div>
+            <a href="@Url.Action("Index","Product_63132041")">
+                <img src="https://img.mwc.com.vn/giay-thoi-trang?w=1150&h=0&FileInput=/Resources/Product/2024/12/14/z6126875640383-1db3a8a830f8739e96a63336a4d6d1977b20907a-4546-4c9b-a6a8-874f40fcf3dc.jpg" class="h-full w-full" />
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<div class="my-4">
+    @Html.Action("BNUPartial", "LoaiSP_63132041")
+</div>
+
+<div class="my-4">
+    @Html.Action("DSPartial", "LoaiSP_63132041")
+</div>
+
+<div class="my-4 md:flex">
+    <div class="w-full md:w-2/4">
+        <div class="hero bg-base-200 h-[550px]">
+            <div class="hero-content text-white text-center">
+                <div class="max-w-md">
+                    <h1 class="text-5xl font-bold">Giày thể thao nam</h1>
+                    <p class="py-6">Giày Da Thể Thao Nam Dáng Sneaker Cổ Thấp Siêu Bền Đẹp, Giày Thể Thao Nam Đi Học, Đi Chơi, Dã Ngoại Năng Động, Trẻ Trung, Thời Trang</p>
+                    <a href="@Url.Action("ProductFilter", "Product_63132041", new { categoryName = "Giày Thể Thao Nam" })" class="btn btn-info">Xem thêm</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-full md:w-3/4">
+        <a href="@Url.Action("ProductFilter", "Product_63132041", new { categoryName = "Giày Thể Thao Nam" })">
+            <img src="https://img.mwc.com.vn/giay-thoi-trang?w=640&h=640&FileInput=/Resources/Product/2024/12/26/z6164659691037_effd21a47e32d1313151d8e640473e21.jpg" class="h-[550px] w-full" />
+        </a>
+    </div>
+</div>
+
+<div class="my-4">
+    @Html.Action("GBPPartial", "LoaiSP_63132041")
+</div>
+
+<div class="my-4">
+    @Html.Action("GCGPartial", "LoaiSP_63132041")
+</div>
+
+
+
+<div class="my-4">
+    @Html.Action("GMNPartial", "LoaiSP_63132041")
+</div>
+
+<div class="my-4 md:flex">
+    <div class="w-full md:w-3/4">
+
+        <a href="@Url.Action("ProductFilter", "Product_63132041", new { categoryName = "Giày Thể Thao Nữ" })">
+            <img src="https://authentic-shoes.com/wp-content/uploads/2023/05/sneaker-la-gi2_ee6d1ea97f5c4128b20bd52fa2866bcb_2048x2048.jpg" class="h-[550px] w-full" />
+        </a>
+    </div>
+    <div class="w-full md:w-2/4">
+        <div class="hero bg-base-200 h-[550px]">
+            <div class="hero-content text-white text-center">
+                <div class="max-w-md">
+                    <h1 class="text-5xl font-bold">Giày Thể Thao Nữ</h1>
+                    <p class="py-6">Giày Thể Thao Nữ Dáng Sneaker Đi Học, Đi Chơi, Giày Thể Thao Nữ Hình Chữ Nổi Siêu Bền Đẹp, Thời Trang.</p>
+                    <a href="@Url.Action("ProductFilter", "Product_63132041", new { categoryName = "Giày Thể Thao Nữ" })" class="btn btn-info">Xem thêm</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="my-4">
+    @Html.Action("BNPartial", "LoaiSP_63132041")
+</div>
+
+<div class="my-4">
+    @Html.Action("GSNPartial", "LoaiSP_63132041")
+</div>
+
+<div class="my-4">
+    @Html.Action("GTPartial", "LoaiSP_63132041")
+</div>
+
+<div class="my-4">
+    @Html.Action("GTTNPartial", "LoaiSP_63132041")
+</div>
+<div class="my-4">
+    @Html.Action("SDNPartial", "LoaiSP_63132041")
+</div>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 10,
+        nav: true,
+        navText: ["<", ">"],
+        dots: false,
+        stagePadding: 20,
+        autoplay: true,
+        autoplayTimeout: 5000,
+        responsive: {
+            0: {
+                items: 1,
+                nav: false
+            },
+            640: {
+                items: 2,
+                nav: false
+            },
+            1024: {
+                items: 3,
+                nav: false
+            },
+            1280: {
+                items: 4,
+                nav: false
+            },
+            1536: {
+                items: 5,
+                nav: false,
+                margin: 10
+            },
+        }
+    })
+</script>
